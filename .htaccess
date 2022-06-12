@@ -1,0 +1,9 @@
+<Files *>
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods: "GET"
+</Files>
+
+RewriteEngine on
+RewriteRule ^avatar/([A-Za-z0-9]+)/?$ etc/avatar.php?id=$1
+RewriteRule ^preview/([A-Za-z0-9]+)/?$ etc/preview.php?id=$1
+RewriteRule ^invite/([A-Za-z0-9-]+)/?$ id.php?invite=$1

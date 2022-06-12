@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^.well-known/wallets/(.+)$ index.php?wallet=$1
