@@ -754,10 +754,7 @@
 		if (@$response["records"]) {
 			foreach ($response["records"] as $key => $value) {
 				if ($value["type"] == "NS") {
-					if (stripos($value["ns"], ".nameserver.io.") !== false) {
-						return true;
-					}
-					if (stripos($value["ns"], ".registry.namebase.io.") !== false) {
+					if (stripos($value["ns"], ".nameserver.io.") !== false || stripos($value["ns"], ".registry.namebase.io.") !== false) {
 						return true;
 					}
 				}
