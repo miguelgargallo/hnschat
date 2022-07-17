@@ -35,6 +35,7 @@
 	}
 
 	// HIDE UNUSED CHANNELS
+	/*
 	$whitelist = ["skmo", "hnschat", "general", "feedback", "test", "eth"];
 	$getChannels = sql("SELECT * FROM `channels`");
 	foreach ($getChannels as $key => $data) {
@@ -58,6 +59,7 @@
 			}
 		}
 	}
+	*/
 
 	// ACTIVATE NEW CHANNELS
 	$getChannels = sql("SELECT * FROM `channels` WHERE `tx` IS NOT NULL AND `activated` = 0 AND `hidden` = 1");

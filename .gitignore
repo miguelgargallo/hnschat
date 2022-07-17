@@ -35,6 +35,7 @@ etc/previews/*
 
 etc/vendor/
 etc/config.php
+etc/test.php
 
 node_modules/
 package-lock.json
