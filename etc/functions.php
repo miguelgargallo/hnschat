@@ -744,6 +744,29 @@
 		return $output;
 	}
 
+	function isNameStaked($tld) {
+		$data = [
+			"method" => "getnameresource",
+			"params" => [$tld],
+		];
+		$response = queryHSD($data);
+
+		if (@$response["records"]) {
+			foreach ($response["records"] as $key => $value) {
+				if ($value["type"] == "NS") {
+					if (stripos($value["ns"], ".nameserver.io.") !== false) {
+						return true;
+					}
+					if (stripos($value["ns"], ".registry.namebase.io.") !== false) {
+						return true;
+					}
+				}
+			}
+		}
+
+		return false;
+	}
+
 	function checkGateway($tld) {
 		$url = "https://gateway.io/tlds/".$tld;
 		$html = getContents($url);

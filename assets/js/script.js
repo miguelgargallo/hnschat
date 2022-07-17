@@ -3943,7 +3943,7 @@ $(() => {
 
 			case "purchaseSLD":
 				tld = toASCII(element.data("tld"));
-				link = "https://gateway.io/tlds/"+tld+"?gak=1601";
+				link = "https://porkbun.com/tld/"+tld;
 				goto(link, true);
 
 				if (element.hasClass("button")) {
