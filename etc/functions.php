@@ -692,7 +692,7 @@
 		if (filter_var($url, FILTER_VALIDATE_URL) !== false) {
 			libxml_use_internal_errors(true);
 
-			$c = getContents($url);
+			$c = getContentsWithSpoof($url);
 
 			if ($c) {
 				$d = new DomDocument();
@@ -802,6 +802,21 @@
         curl_setopt($curl, CURLOPT_FOLLOWLOCATION, TRUE);
         curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5); 
         curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+        $c = curl_exec($curl);
+        curl_close($curl);
+
+        return $c;
+	}
+
+	function getContentsWithSpoof($url) {
+		$curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_PROXY, "127.0.0.1:8080");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, TRUE);
+        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5); 
+        curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+        curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; Googlebot/2.1; +http://google.com/bot.html)");
         $c = curl_exec($curl);
         curl_close($curl);
 
