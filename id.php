@@ -3,7 +3,7 @@
 
 	if (@$_GET["invite"]) { ?>
 		<script type="text/javascript">
-			var invite = "<?php echo $_GET["invite"]; ?>";
+			var invite = "<?php echo htmlspecialchars(addslashes($_GET["invite"])); ?>";
 		</script>
 	<?php
 	}

@@ -132,7 +132,7 @@
 					$output["unavailable"] = true;
 				}
 				else {
-					$canPurchase = checkGateway($data["tld"]);
+					$canPurchase = isNameStaked($data["tld"]);
 					if ($canPurchase) {
 						$output["purchase"] = true;
 					}

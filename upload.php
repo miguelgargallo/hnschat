@@ -20,7 +20,6 @@
 	$fileType = mime_content_type($tmp);
 
 	if (!$fileType || $fileType === "application/octet-stream") {
-		var_dump("TYPE FALLBACK");
 		$fileType = shell_exec("exiftool -mimetype -b ".$tmp);
 	}
 
