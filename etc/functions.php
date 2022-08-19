@@ -734,7 +734,7 @@
 
 		if (@$output["title"]) {
 			$id = generateCode("preview");
-			$insert = sql("INSERT INTO `previews` (id, link, title, description, image) VALUES (?,?,?,?,?)", [$id, $url, $output["title"], $output["description"], $output["image"]]);
+			$insert = sql("INSERT INTO `previews` (id, link, title, description, image) VALUES (?,?,?,?,?)", [$id, $url, @$output["title"], @$output["description"], @$output["image"]]);
 
 			if ($insert) {
 				$output["id"] = $id;
