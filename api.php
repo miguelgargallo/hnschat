@@ -676,8 +676,10 @@
 		case "receivedPayment":
 			$channelInfo = channelForID($data["channel"]);
 
-			if ($data["amount"] != $channelInfo["fee"]) {
-				error("That's not the right amount.");
+			if (@$data["amount"]) {
+				if ($data["amount"] != $channelInfo["fee"]) {
+					error("That's not the right amount.");
+				}
 			}
 
 			$validate = preg_match("/^(?:[a-z0-9]{64})$/", $data["tx"], $match);
