@@ -824,8 +824,10 @@
 	}
 
 	function queryHSD($data) {
-		foreach ($data["params"] as $key => $value) {
-			$data["params"][$key] = trim($value);
+		if (@$data["params"]) {
+			foreach ($data["params"] as $key => $value) {
+				$data["params"][$key] = trim($value);
+			}
 		}
 
 		$curl = curl_init();
